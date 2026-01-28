@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    @media (max-width: 600px) {
+        display: none;
+    }
+}
+
+.logo {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+}
