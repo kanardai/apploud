@@ -2,8 +2,27 @@
     margin-top: 0.5rem;
     line-height: 1.5;
 
-    span {
+    summary {
         font-weight: 600;
+        cursor: pointer;
+        list-style: none;
+
+        &::before {
+            content: '▶';
+            display: inline-block;
+            margin-right: 0.4rem;
+            font-size: 0.65em;
+            vertical-align: middle;
+            transition: transform 0.2s ease;
+        }
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    &[open] > summary::before {
+        transform: rotate(90deg);
     }
 
     ul {

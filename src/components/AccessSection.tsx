@@ -9,8 +9,10 @@ export default function AccessSection({ title, items }: AccessSectionProps) {
     if (items.length === 0) return null;
 
     return (
-        <div className={styles.accessSection}>
-            <span>{title}:</span>
+        <details className={styles.accessSection}>
+            <summary>
+                {title} ({items.length})
+            </summary>
             <ul>
                 {items.map((item) => (
                     <li key={item.path}>
@@ -19,6 +21,6 @@ export default function AccessSection({ title, items }: AccessSectionProps) {
                     </li>
                 ))}
             </ul>
-        </div>
+        </details>
     );
 }
