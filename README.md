@@ -22,6 +22,22 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000)
 
+## Mock server
+
+For development without a GitLab token, you can use the mock SSE server that serves generated data:
+
+1. Set `NEXT_PUBLIC_USE_MOCK=true` in `.env.local`
+2. Start the mock server:
+```bash
+npm run server
+```
+3. Start the frontend:
+```bash
+npm run dev
+```
+
+The mock server runs on `http://localhost:3001` and simulates the same SSE protocol as the real GitLab API route (progress, result, done events).
+
 ## Usage
 
 Enter a GitLab Group ID and click Search. The app displays all users with access to the group, its subgroups, and projects.
