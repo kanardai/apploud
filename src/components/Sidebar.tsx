@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import styles from './Sidebar.module.scss';
 import Footer from './Footer';
+import { ProgressEvent } from '@/types/gitlab.types';
 
 interface SidebarProps {
     groupId: string;
     setGroupId: (value: string) => void;
     loading: boolean;
     handleSubmit: (e: React.FormEvent) => void;
+    progress: ProgressEvent | null;
 }
 
 export default function Sidebar({
@@ -14,6 +16,7 @@ export default function Sidebar({
     setGroupId,
     loading,
     handleSubmit,
+    progress,
 }: SidebarProps) {
     return (
         <nav className={styles.sidebar}>
@@ -54,6 +57,23 @@ export default function Sidebar({
                     Search
                 </button>
             </form>
+
+            {progress && (
+                <div className={styles.progress}>
+                    <p className={styles.progressMessage}>{progress.message}</p>
+                    <div className={styles.progressBar}>
+                        <div
+                            className={styles.progressFill}
+                            style={{
+                                width: `${Math.round((progress.current / progress.total) * 100)}%`,
+                            }}
+                        />
+                    </div>
+                    <p className={styles.progressCount}>
+                        {progress.current} / {progress.total}
+                    </p>
+                </div>
+            )}
 
             <Footer />
         </nav>

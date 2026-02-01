@@ -16,3 +16,12 @@ export interface UserAccess {
     groups: { path: string; access: string }[];
     projects: { path: string; access: string }[];
 }
+
+export type ProgressPhase = 'group' | 'subgroups' | 'projects';
+
+export interface ProgressEvent {
+    phase: ProgressPhase;
+    message: string;
+    current: number;
+    total: number;
+}

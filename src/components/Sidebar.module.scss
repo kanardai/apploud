@@ -24,11 +24,12 @@
     border: none;
     border-top: 1.5px solid;
     border-image: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        transparent 100%
-    ) 1;
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 100%
+        )
+        1;
     margin-top: 1rem;
 }
 
@@ -62,7 +63,8 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         filter: brightness(1);
     }
     50% {
@@ -160,5 +162,36 @@
             opacity: 0.6;
             cursor: not-allowed;
         }
+    }
+}
+
+.progress {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 270px;
+    text-align: center;
+
+    .progressMessage {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0.5rem;
+    }
+    .progressBar {
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        .progressFill {
+            height: 100%;
+            background: var(--highlight);
+            border-radius: 2px;
+            transition: width 0.15s ease-out;
+        }
+    }
+    .progressCount {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 0.25rem;
     }
 }
